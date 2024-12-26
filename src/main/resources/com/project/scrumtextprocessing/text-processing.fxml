@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.project.scrumtextprocessing.controller.TextProcessingController"
-            prefHeight="750" prefWidth="1000">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.scrumtextprocessing.controller.TextProcessingController">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" prefHeight="35.0" prefWidth="289.0" text="Test Processing Tool">
+            <font>
+                <Font name="Tahoma Bold" size="19.0" />
+            </font></Label>
+        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" layoutX="89.0" layoutY="35.0" prefHeight="26.0" prefWidth="132.0" text="Input Text">
+            <font>
+                <Font name="Tahoma Bold" size="14.0" />
+            </font>
+        </Label>
+        <TextArea fx:id="txtA_input_text" layoutX="88.0" layoutY="66.0" prefHeight="86.0" prefWidth="474.0" promptText="Enter Your Text Here....">
+            <font>
+                <Font name="Tahoma" size="15.0" />
+            </font>
+        </TextArea>
+        <TextField fx:id="txt_regular_expres" layoutX="88.0" layoutY="192.0" prefHeight="35.0" prefWidth="474.0" promptText="Enter Your Regular Expressions Here..">
+            <font>
+                <Font name="Tahoma" size="15.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="txt_replace_text" layoutX="88.0" layoutY="259.0" prefHeight="35.0" prefWidth="474.0" promptText="Enter Your Replacement Text Here...">
+            <font>
+                <Font name="Tahoma" size="15.0" />
+            </font>
+        </TextField>
+        <Button fx:id="bttn_search" layoutX="126.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #91bdc7;" text="Search" textFill="#fffefe">
+            <font>
+                <Font name="Tahoma" size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="bttn_match" layoutX="232.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleMatchPattern" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #26c9b1;" text="Match" textFill="#eceaea">
+            <font>
+                <Font name="Tahoma" size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="bttn_replace" layoutX="326.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleReplace" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: #db9209;" text="Replace" textFill="#efe8e8">
+            <font>
+                <Font name="Tahoma" size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="bttn_clear" layoutX="427.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: #db0936;" text="Clear" textFill="#f2eaea">
+            <font>
+                <Font name="Tahoma" size="15.0" />
+            </font>
+        </Button>
+        <TextArea fx:id="txtA_result" layoutX="97.0" layoutY="426.0" prefHeight="101.0" prefWidth="430.0" promptText="Results....">
+            <font>
+                <Font name="Tahoma" size="16.0" />
+            </font>
+        </TextArea>
+        <HBox layoutX="102.0" layoutY="376.0" prefHeight="4.0" prefWidth="424.0" style="-fx-background-color: black;" />
+        <Label alignment="BOTTOM_LEFT" layoutX="97.0" layoutY="399.0" prefHeight="26.0" prefWidth="87.0" text="Results">
+            <font>
+                <Font name="Tahoma" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="89.0" layoutY="175.0" prefHeight="18.0" prefWidth="148.0" text="Regular Expression">
+            <font>
+                <Font name="Tahoma Bold" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="92.0" layoutY="242.0" prefHeight="18.0" prefWidth="142.0" text="Replacement Text">
+            <font>
+                <Font name="Tahoma Bold" size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="bttn_data_management" layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleDataManagement" prefHeight="29.0" prefWidth="142.0" style="-fx-background-color: #b3e09b;" text="Data Management">
+            <font>
+                <Font name="Tahoma" size="15.0" />
+            </font>
+        </Button>
+    </children>
 </AnchorPane>
