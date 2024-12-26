@@ -1,48 +1,42 @@
 package com.project.scrumtextprocessing.controller;
 
+import com.project.scrumtextprocessing.data_management.DataManager;
+import com.project.scrumtextprocessing.data_management.TextEntry;
 import com.project.scrumtextprocessing.regexUtil.RegexUtil;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class TextProcessingController {
+public class TextProcessingController implements Initializable {
+    private ObservableList<TextEntry> historyEntries;
+    private DataManager dataManager;
 
-    @FXML
-    private Button bttn_clear; // button use to clear all input and output fields
+    @FXML private ListView<TextEntry> listView_history;
 
-    @FXML
-    private Button bttn_match;  // button use to check if a text matches a regular expression
+    @FXML private TextArea txtA_input_text; //text field for user input
 
-    @FXML
-    private Button bttn_replace; // button use to replace text based on regex pattern
+    @FXML private TextArea txtA_result;  // text field for displaying results
 
-    @FXML
-    private Button bttn_search; // button use to search for matches in the text based on a regex pattern
+    @FXML private TextField txt_regular_expres; // text field for regex pattern input
 
-    @FXML
-    private TextArea txtA_input_text; //text field for user input
+    @FXML private TextField txt_replace_text;  // text field for entering replacement text
 
-    @FXML
-    private TextArea txtA_result;  // text field for displaying results
-
-    @FXML
-    private TextField txt_regular_expres; // text field for regex pattern input
-
-    @FXML
-    private TextField txt_replace_text;  // text field for entering replacement text
-
-    @FXML
-    private Button bttn_data_management;
 
 
     /**
@@ -104,7 +98,7 @@ public class TextProcessingController {
         String result = is_match ? "The text matches the pattern" : "The text does not match the pattern";
         txtA_result.setText(result);
         txtA_result.setDisable(true);
-
+        saveOperation("MATCH", result);
 
     }
 
@@ -125,6 +119,7 @@ public class TextProcessingController {
         String matches = RegexUtil.replaceText(pattern, text, textToReplace);
         txtA_result.setText(matches);
         txtA_result.setDisable(true);
+        saveOperation("REPLACE", matches);
     }
 
 
@@ -140,10 +135,60 @@ public class TextProcessingController {
         String text = txtA_input_text.getText();
         if(pattern.isEmpty() || text.isEmpty())
             JOptionPane.showMessageDialog(null, "Either the pattern or text field is empty");
-        RegexUtil RegexUtils = null;
-        String matches = RegexUtils.findMatches(pattern, text);
+        String matches = RegexUtil.findMatches(pattern, text);
         txtA_result.setText(matches);
         txtA_result.setDisable(true);
+        saveOperation("SEARCH", matches);
 
+    }
+
+    private void saveOperation(String operationType, String result) {
+        TextEntry entry = dataManager.createEntry(
+                txtA_input_text.getText(),
+                result,
+                txt_regular_expres.getText()
+        );
+        historyEntries.add(0, entry); // Add to start of list
+    }
+
+    private String truncateText(String text) {
+        return text.length() > 50 ? text.substring(0, 50) + "..." : text;
+    }
+
+    private void loadHistoryEntry(TextEntry entry) {
+        txtA_input_text.setText(entry.getOriginalText());
+        txt_regular_expres.setText(entry.getRegexPattern());
+        txtA_result.setText(entry.getProcessedText());
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        dataManager = new DataManager();
+        historyEntries = FXCollections.observableArrayList();
+
+        // Set up history list view
+        listView_history.setItems(historyEntries);
+        listView_history.setCellFactory(lv -> new ListCell<TextEntry>() {
+            @Override
+            protected void updateItem(TextEntry entry, boolean empty) {
+                super.updateItem(entry, empty);
+                if (empty || entry == null) {
+                    setText(null);
+                } else {
+                    setText("Pattern: " + entry.getRegexPattern() +
+                            "\nOriginal: " + truncateText(entry.getOriginalText()) +
+                            "\nProcessed: " + truncateText(entry.getProcessedText()));
+                }
+            }
+        });
+
+        // Add selection listener to history list view
+        listView_history.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((obs, oldVal, newVal) -> {
+                    if (newVal != null) {
+                        loadHistoryEntry(newVal);
+                    }
+                });
     }
 }

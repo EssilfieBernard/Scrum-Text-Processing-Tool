@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.scrumtextprocessing.controller.TextProcessingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.scrumtextprocessing.controller.TextProcessingController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" prefHeight="35.0" prefWidth="289.0" text="Test Processing Tool">
             <font>
@@ -71,10 +71,11 @@
                 <Font name="Tahoma Bold" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="bttn_data_management" layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleDataManagement" prefHeight="29.0" prefWidth="142.0" style="-fx-background-color: #b3e09b;" text="Data Management">
+        <ListView fx:id="listView_history" layoutX="600.0" layoutY="66.0" prefHeight="461.0" prefWidth="180.0" />
+        <Label alignment="CENTER" layoutX="600.0" layoutY="35.0" prefHeight="26.0" prefWidth="180.0" text="History">
             <font>
-                <Font name="Tahoma" size="15.0" />
+                <Font name="Tahoma Bold" size="14.0" />
             </font>
-        </Button>
+        </Label>
     </children>
 </AnchorPane>
