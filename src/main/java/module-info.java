@@ -1,7 +1,7 @@
 module com.project.scrumtextprocessing {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires java.desktop;
 
     opens com.project.scrumtextprocessing to javafx.fxml;
     exports com.project.scrumtextprocessing;

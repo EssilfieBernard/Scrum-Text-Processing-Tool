@@ -1,4 +1,5 @@
 package com.project.scrumtextprocessing.regexUtil;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,6 +8,7 @@ import java.util.regex.Pattern;
  * text replacement, and finding matches in a given input string.
  */
 public class RegexUtil {
+
     /**
      *  Finds all matches of the given regular expression in the input text and returns details about each match.
      *
@@ -48,8 +50,5 @@ public class RegexUtil {
         }
         return Pattern.matches(pattern, text);
     }
-
-
-
 
 }
