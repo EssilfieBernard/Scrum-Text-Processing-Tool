@@ -11,6 +11,8 @@ public class TextEntry {
     private String regexPattern;
     private Date timestamp;
 
+    public TextEntry() {}
+
     public TextEntry(String originalText, String processedText, String regexPattern) {
         this.id = UUID.randomUUID().toString();
         this.originalText = originalText;
@@ -26,9 +28,11 @@ public class TextEntry {
     public String getRegexPattern() { return regexPattern; }
     public Date getTimestamp() { return timestamp; }
 
-    public void setProcessedText(String processedText) {
-        this.processedText = processedText;
-    }
+    public void setProcessedText(String processedText) { this.processedText = processedText;}
+    public void setId(String id) { this.id = id; }
+    public void setOriginalText(String originalText) { this.originalText = originalText; }
+    public void setRegexPattern(String regexPattern) { this.regexPattern = regexPattern; }
+    public void setTimestamp(Date timestamp) { this.timestamp = timestamp; }
 
 
     @Override

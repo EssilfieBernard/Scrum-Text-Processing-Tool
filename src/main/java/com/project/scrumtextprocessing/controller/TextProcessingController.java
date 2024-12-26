@@ -149,6 +149,7 @@ public class TextProcessingController implements Initializable {
                 txt_regular_expres.getText()
         );
         historyEntries.add(0, entry); // Add to start of list
+        dataManager.saveToFile();
     }
 
     private String truncateText(String text) {
@@ -165,6 +166,9 @@ public class TextProcessingController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dataManager = new DataManager();
         historyEntries = FXCollections.observableArrayList();
+
+        dataManager.loadFromFile();
+        historyEntries.setAll(dataManager.getAllEntries());
 
         // Set up history list view
         listView_history.setItems(historyEntries);

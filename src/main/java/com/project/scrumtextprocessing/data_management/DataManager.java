@@ -1,5 +1,14 @@
 package com.project.scrumtextprocessing.data_management;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,11 +21,56 @@ public class DataManager {
     private Map<String, TextEntry> entriesMap;
     private Set<String> uniquePatterns;
     private List<TextEntry> entriesList;
+    private static final String SAVE_FILE_PATH = "text_entries.json";
+    private Gson gson;
 
     public DataManager() {
         this.entriesMap = new HashMap<>();
         this.uniquePatterns = new HashSet<>();
         this.entriesList = new ArrayList<>();
+        this.gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                .create();
+    }
+
+    public void saveToFile() {
+        try (FileWriter writer = new FileWriter(SAVE_FILE_PATH)) {
+            JsonObject data = new JsonObject();
+            data.add("entries", gson.toJsonTree(entriesList));
+            data.add("patterns", gson.toJsonTree(uniquePatterns));
+            gson.toJson(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadFromFile() {
+        File file = new File(SAVE_FILE_PATH);
+        if (!file.exists())
+            return;
+        try(FileReader reader = new FileReader(SAVE_FILE_PATH)) {
+            JsonObject data = gson.fromJson(reader, JsonObject.class);
+
+            //Clear current data
+            entriesList.clear();
+            entriesMap.clear();
+            uniquePatterns.clear();
+
+            // Load entries
+            var listType = new TypeToken<ArrayList<TextEntry>>(){}.getType();
+            List<TextEntry> loadedEntries = gson.fromJson(data.get("entries"), listType);
+            for (TextEntry entry : loadedEntries) {
+                entriesList.add(entry);
+                entriesMap.put(entry.getId(), entry);
+            }
+
+            // Load patterns
+            var setType = new TypeToken<HashSet<String>>(){}.getType();
+            uniquePatterns = gson.fromJson(data.get("patterns"), setType);
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Create operation

@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "id": "9d9efe20-b067-4c3b-bda4-78c9bb7d39c6",
+      "originalText": "Bernard Essilfie",
+      "processedText": "Match: Bernard at position 0\n",
+      "regexPattern": "Bernard",
+      "timestamp": "2024-12-26 10:52:18"
+    },
+    {
+      "id": "e6368e62-c359-4d7b-b7f1-47487af1c0fa",
+      "originalText": "The quick brown fox jumps over the lazy dog",
+      "processedText": "The quick brown fox jumps over the lazy cat",
+      "regexPattern": "dog",
+      "timestamp": "2024-12-26 10:54:42"
+    }
+  ],
+  "patterns": [
+    "Bernard",
+    "dog"
+  ]
+}
