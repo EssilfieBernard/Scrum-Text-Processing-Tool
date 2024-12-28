@@ -98,7 +98,7 @@
       <recent name="com.project.scrumtextprocessing.regexUtil" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DataManagerTest">
+  <component name="RunManager">
     <configuration name="DataManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ScrumTextProcessing" />
       <extension name="coverage">

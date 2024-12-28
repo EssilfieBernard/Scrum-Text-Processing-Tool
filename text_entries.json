@@ -1,22 +1,4 @@
 {
-  "entries": [
-    {
-      "id": "a0ea4705-1f6b-428f-95d5-b8287710a409",
-      "originalText": "original text",
-      "processedText": "processed text",
-      "regexPattern": "test pattern",
-      "timestamp": "2024-12-28 21:40:53"
-    },
-    {
-      "id": "c34b9d22-8ffe-4de4-b3b0-2d6ea07eb9f9",
-      "originalText": "save test",
-      "processedText": "processed",
-      "regexPattern": "pattern",
-      "timestamp": "2024-12-28 21:40:53"
-    }
-  ],
-  "patterns": [
-    "pattern",
-    "test pattern"
-  ]
+  "entries": [],
+  "patterns": []
 }
