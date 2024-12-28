@@ -3,79 +3,206 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.scrumtextprocessing.controller.TextProcessingController">
-    <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" prefHeight="35.0" prefWidth="289.0" text="Test Processing Tool">
-            <font>
-                <Font name="Tahoma Bold" size="19.0" />
-            </font></Label>
-        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" layoutX="89.0" layoutY="35.0" prefHeight="26.0" prefWidth="132.0" text="Input Text">
-            <font>
-                <Font name="Tahoma Bold" size="14.0" />
-            </font>
-        </Label>
-        <TextArea fx:id="txtA_input_text" layoutX="88.0" layoutY="66.0" prefHeight="86.0" prefWidth="474.0" promptText="Enter Your Text Here....">
-            <font>
-                <Font name="Tahoma" size="15.0" />
-            </font>
-        </TextArea>
-        <TextField fx:id="txt_regular_expres" layoutX="88.0" layoutY="192.0" prefHeight="35.0" prefWidth="474.0" promptText="Enter Your Regular Expressions Here..">
-            <font>
-                <Font name="Tahoma" size="15.0" />
-            </font>
-        </TextField>
-        <TextField fx:id="txt_replace_text" layoutX="88.0" layoutY="259.0" prefHeight="35.0" prefWidth="474.0" promptText="Enter Your Replacement Text Here...">
-            <font>
-                <Font name="Tahoma" size="15.0" />
-            </font>
-        </TextField>
-        <Button fx:id="bttn_search" layoutX="126.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #91bdc7;" text="Search" textFill="#fffefe">
-            <font>
-                <Font name="Tahoma" size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="bttn_match" layoutX="232.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleMatchPattern" prefHeight="35.0" prefWidth="68.0" style="-fx-background-color: #26c9b1;" text="Match" textFill="#eceaea">
-            <font>
-                <Font name="Tahoma" size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="bttn_replace" layoutX="326.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleReplace" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: #db9209;" text="Replace" textFill="#efe8e8">
-            <font>
-                <Font name="Tahoma" size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="bttn_clear" layoutX="427.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: #db0936;" text="Clear" textFill="#f2eaea">
-            <font>
-                <Font name="Tahoma" size="15.0" />
-            </font>
-        </Button>
-        <TextArea fx:id="txtA_result" layoutX="97.0" layoutY="426.0" prefHeight="101.0" prefWidth="430.0" promptText="Results....">
-            <font>
-                <Font name="Tahoma" size="16.0" />
-            </font>
-        </TextArea>
-        <HBox layoutX="102.0" layoutY="376.0" prefHeight="4.0" prefWidth="424.0" style="-fx-background-color: black;" />
-        <Label alignment="BOTTOM_LEFT" layoutX="97.0" layoutY="399.0" prefHeight="26.0" prefWidth="87.0" text="Results">
-            <font>
-                <Font name="Tahoma" size="16.0" />
-            </font>
-        </Label>
-        <Label layoutX="89.0" layoutY="175.0" prefHeight="18.0" prefWidth="148.0" text="Regular Expression">
-            <font>
-                <Font name="Tahoma Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="92.0" layoutY="242.0" prefHeight="18.0" prefWidth="142.0" text="Replacement Text">
-            <font>
-                <Font name="Tahoma Bold" size="14.0" />
-            </font>
-        </Label>
-        <ListView fx:id="listView_history" layoutX="600.0" layoutY="66.0" prefHeight="461.0" prefWidth="180.0" />
-        <Label alignment="CENTER" layoutX="600.0" layoutY="35.0" prefHeight="26.0" prefWidth="180.0" text="History">
-            <font>
-                <Font name="Tahoma Bold" size="14.0" />
-            </font>
-        </Label>
-    </children>
-</AnchorPane>
+<StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.project.scrumtextprocessing.controller.TextProcessingController"
+           style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #1E293B, #0F172A);">
+
+    <VBox spacing="0" maxWidth="1300" maxHeight="850">
+        <!-- Elegant Header -->
+        <StackPane style="-fx-background-color: linear-gradient(from 0px 0px to 400px 0px, #3B82F6, #6366F1, #8B5CF6); -fx-background-radius: 0 0 40 40;"
+                   prefHeight="130">
+            <effect>
+                <DropShadow color="#6366F166" offsetY="4" radius="20"/>
+            </effect>
+            <VBox alignment="CENTER" spacing="12">
+                <Label text="Text Processing Suite" textFill="WHITE" styleClass="header-text">
+                    <font>
+                        <Font name="Helvetica Bold" size="46.0"/>
+                    </font>
+                    <effect>
+                        <DropShadow color="#8B5CF6" radius="15" spread="0.2"/>
+                    </effect>
+                </Label>
+                <Label text="✨ Advanced Pattern Recognition &amp; Text Manipulation ✨" textFill="#F8FAFC">
+                    <font>
+                        <Font name="Helvetica" size="18.0"/>
+                    </font>
+                </Label>
+            </VBox>
+        </StackPane>
+
+        <HBox spacing="32" style="-fx-padding: 32;">
+            <!-- Main Content Panel -->
+            <VBox spacing="28" style="-fx-background-color: #334155; -fx-padding: 32; -fx-background-radius: 30;"
+                  HBox.hgrow="ALWAYS" maxWidth="800">
+                <effect>
+                    <DropShadow color="#6366F1" radius="20" offsetY="5" spread="0.05"/>
+                </effect>
+
+                <VBox spacing="16">
+                    <Label text="✍️ Input Text" styleClass="section-label" textFill="#F8FAFC">
+                        <font>
+                            <Font name="Helvetica Bold" size="24.0"/>
+                        </font>
+                    </Label>
+                    <TextArea fx:id="txtA_input_text"
+                              prefHeight="60.0"
+                              styleClass="modern-textarea"
+                              style="-fx-control-inner-background: #475569;
+                               -fx-background-color: #475569;
+                               -fx-background-radius: 20;
+                               -fx-border-radius: 20;
+                               -fx-border-color: #6366F1;
+                               -fx-border-width: 2;
+                               -fx-font-size: 16px;
+                               -fx-text-fill: white;
+                               -fx-prompt-text-fill: #94A3B8;"
+                              wrapText="true"
+                              promptText="Enter your text here for processing..."/>
+
+                </VBox>
+
+                <!-- RegEx Section -->
+                <VBox spacing="16">
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="🎯 Pattern Matcher" styleClass="section-label" textFill="#F8FAFC">
+                            <font>
+                                <Font name="Helvetica Bold" size="24.0"/>
+                            </font>
+                        </Label>
+                        <Region prefWidth="28" prefHeight="28"
+                                style="-fx-background-color: #6366F1; -fx-shape: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z';"/>
+                    </HBox>
+                    <TextField fx:id="txt_regular_expres"
+                               prefHeight="60.0"
+                               styleClass="modern-textfield"
+                               style="-fx-background-color: #475569; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #6366F1; -fx-border-width: 2; -fx-font-size: 16px; -fx-text-fill: white;"
+                               promptText="Enter your regex pattern..."/>
+                </VBox>
+
+                <!-- Replace Text Section -->
+                <VBox spacing="16">
+                    <Label text="🔄 Replace Text" styleClass="section-label" textFill="#F8FAFC">
+                        <font>
+                            <Font name="Helvetica Bold" size="24.0"/>
+                        </font>
+                    </Label>
+                    <TextField fx:id="txt_replace_text"
+                               prefHeight="60.0"
+                               styleClass="modern-textfield"
+                               style="-fx-background-color: #475569; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #6366F1; -fx-border-width: 2; -fx-font-size: 16px; -fx-text-fill: white;"
+                               promptText="Enter replacement text..."/>
+                </VBox>
+
+                <!-- Action Buttons -->
+                <HBox spacing="16" alignment="CENTER">
+                    <Button fx:id="bttn_search" onAction="#handleSearch"
+                            styleClass="action-button"
+                            style="-fx-background-color: linear-gradient(from 0px 0px to 200px 0px, #3B82F6, #2563EB); -fx-background-radius: 20; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                            prefWidth="140" prefHeight="60"
+                            text="🔍 Search">
+                        <effect>
+                            <DropShadow color="#3B82F6" radius="15" offsetY="3"/>
+                        </effect>
+                    </Button>
+                    <Button fx:id="bttn_match" onAction="#handleMatchPattern"
+                            styleClass="action-button"
+                            style="-fx-background-color: linear-gradient(from 0px 0px to 200px 0px, #8B5CF6, #7C3AED); -fx-background-radius: 20; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                            prefWidth="140" prefHeight="60"
+                            text="⚡ Match">
+                        <effect>
+                            <DropShadow color="#8B5CF6" radius="15" offsetY="3"/>
+                        </effect>
+                    </Button>
+                    <Button fx:id="bttn_replace" onAction="#handleReplace"
+                            styleClass="action-button"
+                            style="-fx-background-color: linear-gradient(from 0px 0px to 200px 0px, #10B981, #059669); -fx-background-radius: 20; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                            prefWidth="140" prefHeight="60"
+                            text="🔄 Replace">
+                        <effect>
+                            <DropShadow color="#10B981" radius="15" offsetY="3"/>
+                        </effect>
+                    </Button>
+                    <Button fx:id="bttn_clear" onAction="#handleClear"
+                            styleClass="action-button"
+                            style="-fx-background-color: linear-gradient(from 0px 0px to 200px 0px, #EF4444, #DC2626); -fx-background-radius: 20; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                            prefWidth="140" prefHeight="60"
+                            text="✕ Clear">
+                        <effect>
+                            <DropShadow color="#EF4444" radius="15" offsetY="3"/>
+                        </effect>
+                    </Button>
+                </HBox>
+
+                <!-- Results Section -->
+                <VBox spacing="16">
+                    <Label text="🎉 Results" styleClass="section-label" textFill="#F8FAFC">
+                        <font>
+                            <Font name="Helvetica Bold" size="24.0"/>
+                        </font>
+                    </Label>
+                    <StackPane style="-fx-background-color: #475569; -fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #6366F1; -fx-border-width: 2;">
+                        <effect>
+                            <DropShadow color="#6366F1" radius="15" offsetY="3"/>
+                        </effect>
+                        <TextArea fx:id="txtA_result"
+                                  prefHeight="220.0"
+                                  styleClass="modern-textarea"
+                                  style="-fx-control-inner-background: white;
+                                   -fx-background-color: transparent;
+                                   -fx-background-radius: 25;
+                                   -fx-border-radius: 25;
+                                   -fx-font-size: 16px;
+                                   -fx-text-fill: black;
+                                   -fx-prompt-text-fill: #94A3B8;"
+                                  wrapText="true"
+                                  promptText="Your processing results will appear here..."/>
+
+                    </StackPane>
+                </VBox>
+            </VBox>
+
+            <!-- History Panel -->
+            <VBox spacing="24" style="-fx-background-color: #334155; -fx-padding: 32; -fx-background-radius: 30;"
+                  prefWidth="420">
+                <effect>
+                    <DropShadow color="#6366F1" radius="20" offsetY="5" spread="0.05"/>
+                </effect>
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="📜 History Log" styleClass="section-label" textFill="#F8FAFC">
+                        <font>
+                            <Font name="Helvetica Bold" size="24.0"/>
+                        </font>
+                    </Label>
+                    <Label text="Recent Operations" textFill="#94A3B8">
+                        <font>
+                            <Font name="Helvetica" size="16.0"/>
+                        </font>
+                    </Label>
+                </HBox>
+
+                <ListView fx:id="listView_history"
+                          VBox.vgrow="ALWAYS"
+                          styleClass="modern-listview"
+                          style="-fx-background-color: #475569; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #6366F1; -fx-border-width: 2; -fx-font-size: 15px; -fx-text-fill: white;"/>
+
+                <Button fx:id="bttn_delete_history"
+                        onAction="#handleDeleteHistory"
+                        styleClass="action-button"
+                        style="-fx-background-color: linear-gradient(from 0px 0px to 200px 0px, #EF4444, #DC2626); -fx-background-radius: 20; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                        prefHeight="60"
+                        text="🗑 Delete Selected">
+                    <effect>
+                        <DropShadow color="#EF4444" radius="15" offsetY="3"/>
+                    </effect>
+                </Button>
+            </VBox>
+        </HBox>
+    </VBox>
+</StackPane>

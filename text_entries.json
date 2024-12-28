@@ -1,22 +1,29 @@
 {
   "entries": [
     {
-      "id": "9d9efe20-b067-4c3b-bda4-78c9bb7d39c6",
-      "originalText": "Bernard Essilfie",
-      "processedText": "Match: Bernard at position 0\n",
-      "regexPattern": "Bernard",
-      "timestamp": "2024-12-26 10:52:18"
+      "id": "ad132b80-6159-45a4-9564-d015cbc8a1f1",
+      "originalText": "The quick brown fox jumps over the lazy dog",
+      "processedText": "The quick brown fox jumps over the lazy cat and mouse",
+      "regexPattern": "dog",
+      "timestamp": "2024-12-28 12:51:38"
     },
     {
-      "id": "e6368e62-c359-4d7b-b7f1-47487af1c0fa",
+      "id": "5228255a-4861-4384-ae57-22500a1b1d9b",
       "originalText": "The quick brown fox jumps over the lazy dog",
-      "processedText": "The quick brown fox jumps over the lazy cat",
+      "processedText": "The quick brown fox jumps over the lazy Cat and mouse",
       "regexPattern": "dog",
-      "timestamp": "2024-12-26 10:54:42"
+      "timestamp": "2024-12-28 14:04:47"
+    },
+    {
+      "id": "7615409a-d716-49a2-9e39-0d911af8bcdf",
+      "originalText": "",
+      "processedText": "The text matches the pattern",
+      "regexPattern": "",
+      "timestamp": "2024-12-28 14:12:51"
     }
   ],
   "patterns": [
-    "Bernard",
+    "",
     "dog"
   ]
 }
