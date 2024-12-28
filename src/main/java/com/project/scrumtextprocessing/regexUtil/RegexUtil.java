@@ -24,7 +24,7 @@ public class RegexUtil {
         while (matcher.find()){
             results.append("Match: ").append(matcher.group()).append(" at position ").append(matcher.start()).append("\n");
         }
-        return results.length() > 0 ? results.toString() : "No matches found";
+        return !results.isEmpty() ? results.toString() : "No matches found";
     }
 
 

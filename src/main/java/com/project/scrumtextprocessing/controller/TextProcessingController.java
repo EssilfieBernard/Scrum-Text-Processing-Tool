@@ -7,16 +7,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -37,33 +32,10 @@ public class TextProcessingController implements Initializable {
 
     @FXML private TextField txt_replace_text;  // text field for entering replacement text
 
-
-
     /**
      * handles the routing to data management
      * @param event the action event triggered by the Data Management
      */
-    @FXML
-    void handleDataManagement(ActionEvent event) {
-        try {
-            // Load the Transaction FXML
-            FXMLLoader loader = new FXMLLoader(TextProcessingController.class.getResource("data-manager.fxml"));
-            Parent root = loader.load();
-
-            // Get the current stage
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            // Set the new scene
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Data Manager");
-            stage.show();
-
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }
 
 
     /**
@@ -87,12 +59,12 @@ public class TextProcessingController implements Initializable {
      */
     @FXML
     void handleMatchPattern(ActionEvent event) throws IOException{
-
         String pattern = txt_regular_expres.getText();
         String text = txtA_input_text.getText();
-
-        if(pattern.isEmpty() || text.isEmpty())
-            JOptionPane.showMessageDialog(null, "Either the pattern or text field is empty");
+        if (pattern.isEmpty() || text.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter both regex pattern and input text.");
+            return;
+        }
 
         boolean is_match = RegexUtil.isMatch(pattern, text);
         String result = is_match ? "The text matches the pattern" : "The text does not match the pattern";
@@ -109,13 +81,15 @@ public class TextProcessingController implements Initializable {
      */
     @FXML
     void handleReplace(ActionEvent event) {
-
         String textToReplace = txt_replace_text.getText();
         String text = txtA_input_text.getText();
         String pattern = txt_regular_expres.getText();
 
-        if(textToReplace.isEmpty() || text.isEmpty() || pattern.isEmpty())
-            JOptionPane.showMessageDialog(null, "Text fields cannot be empty");
+        if (textToReplace.isEmpty() || pattern.isEmpty() || text.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter regex pattern, replacement text and input text.");
+            return;
+        }
+
         String matches = RegexUtil.replaceText(pattern, text, textToReplace);
         txtA_result.setText(matches);
         txtA_result.setDisable(true);
@@ -130,16 +104,37 @@ public class TextProcessingController implements Initializable {
      */
     @FXML
     void handleSearch(ActionEvent event) {
-
         String pattern = txt_regular_expres.getText();
         String text = txtA_input_text.getText();
-        if(pattern.isEmpty() || text.isEmpty())
-            JOptionPane.showMessageDialog(null, "Either the pattern or text field is empty");
+        if (pattern.isEmpty() || text.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter both regex pattern and input text.");
+            return;
+        }
+
         String matches = RegexUtil.findMatches(pattern, text);
         txtA_result.setText(matches);
         txtA_result.setDisable(true);
         saveOperation("SEARCH", matches);
 
+    }
+
+    @FXML
+    public void handleDeleteHistory(ActionEvent actionEvent) {
+        TextEntry selectedEntry = listView_history.getSelectionModel().getSelectedItem();
+        if (selectedEntry != null) {
+            // Remove from data manager
+            dataManager.deleteEntry(selectedEntry.getId());
+            // Remove from observable list
+            historyEntries.remove(selectedEntry);
+            // Save changes to file
+            dataManager.saveToFile();
+            // Clear the text fields
+            txtA_input_text.clear();
+            txt_regular_expres.clear();
+            txtA_result.clear();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select an entry to delete.");
+        }
     }
 
     private void saveOperation(String operationType, String result) {
@@ -148,7 +143,7 @@ public class TextProcessingController implements Initializable {
                 result,
                 txt_regular_expres.getText()
         );
-        historyEntries.add(0, entry); // Add to start of list
+        historyEntries.addFirst(entry); // Add to start of list
         dataManager.saveToFile();
     }
 
@@ -195,4 +190,6 @@ public class TextProcessingController implements Initializable {
                     }
                 });
     }
+
+
 }
