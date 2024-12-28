@@ -1,29 +1,22 @@
 {
   "entries": [
     {
-      "id": "ad132b80-6159-45a4-9564-d015cbc8a1f1",
-      "originalText": "The quick brown fox jumps over the lazy dog",
-      "processedText": "The quick brown fox jumps over the lazy cat and mouse",
-      "regexPattern": "dog",
-      "timestamp": "2024-12-28 12:51:38"
+      "id": "a0ea4705-1f6b-428f-95d5-b8287710a409",
+      "originalText": "original text",
+      "processedText": "processed text",
+      "regexPattern": "test pattern",
+      "timestamp": "2024-12-28 21:40:53"
     },
     {
-      "id": "5228255a-4861-4384-ae57-22500a1b1d9b",
-      "originalText": "The quick brown fox jumps over the lazy dog",
-      "processedText": "The quick brown fox jumps over the lazy Cat and mouse",
-      "regexPattern": "dog",
-      "timestamp": "2024-12-28 14:04:47"
-    },
-    {
-      "id": "7615409a-d716-49a2-9e39-0d911af8bcdf",
-      "originalText": "",
-      "processedText": "The text matches the pattern",
-      "regexPattern": "",
-      "timestamp": "2024-12-28 14:12:51"
+      "id": "c34b9d22-8ffe-4de4-b3b0-2d6ea07eb9f9",
+      "originalText": "save test",
+      "processedText": "processed",
+      "regexPattern": "pattern",
+      "timestamp": "2024-12-28 21:40:53"
     }
   ],
   "patterns": [
-    "",
-    "dog"
+    "pattern",
+    "test pattern"
   ]
 }

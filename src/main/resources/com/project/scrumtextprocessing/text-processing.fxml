@@ -38,7 +38,7 @@
 
         <HBox spacing="32" style="-fx-padding: 32;">
             <!-- Main Content Panel -->
-            <VBox spacing="28" style="-fx-background-color: #334155; -fx-padding: 32; -fx-background-radius: 30;"
+            <VBox spacing="28" style="-fx-background-color: #334155; -fx-padding: 32; -fx-background-radius: 14;"
                   HBox.hgrow="ALWAYS" maxWidth="800">
                 <effect>
                     <DropShadow color="#6366F1" radius="20" offsetY="5" spread="0.05"/>
@@ -55,8 +55,9 @@
                               styleClass="modern-textarea"
                               style="-fx-control-inner-background: #475569;
                                -fx-background-color: #475569;
-                               -fx-background-radius: 20;
+                               -fx-background-radius: 12;
                                -fx-border-radius: 20;
+                               -fx-padding: 2;
                                -fx-border-color: #6366F1;
                                -fx-border-width: 2;
                                -fx-font-size: 16px;
@@ -64,6 +65,8 @@
                                -fx-prompt-text-fill: #94A3B8;"
                               wrapText="true"
                               promptText="Enter your text here for processing..."/>
+
+
 
                 </VBox>
 
@@ -155,7 +158,7 @@
                                   styleClass="modern-textarea"
                                   style="-fx-control-inner-background: white;
                                    -fx-background-color: transparent;
-                                   -fx-background-radius: 25;
+                                   -fx-background-radius: 12;
                                    -fx-border-radius: 25;
                                    -fx-font-size: 16px;
                                    -fx-text-fill: black;

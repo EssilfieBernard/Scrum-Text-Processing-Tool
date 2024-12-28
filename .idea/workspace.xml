@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5b33859c-af3a-4cf6-bbad-2a416e44402f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/scrumtextprocessing/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/scrumtextprocessing/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/scrumtextprocessing/controller/TextProcessingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/scrumtextprocessing/controller/TextProcessingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/scrumtextprocessing/regexUtil/RegexUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/scrumtextprocessing/regexUtil/RegexUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/project/scrumtextprocessing/text-processing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/project/scrumtextprocessing/text-processing.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/text_entries.json" beforeDir="false" afterPath="$PROJECT_DIR$/text_entries.json" afterDir="false" />
     </list>
@@ -21,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -64,12 +63,129 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "JUnit.DataManagerTest.createEntry.executor": "Run",
+    "JUnit.DataManagerTest.deleteEntry.executor": "Run",
+    "JUnit.DataManagerTest.executor": "Run",
+    "JUnit.DataManagerTest.getAllEntries.executor": "Run",
+    "JUnit.DataManagerTest.saveAndLoadFromFile.executor": "Run",
+    "JUnit.DataManagerTest.updateEntry.executor": "Run",
+    "JUnit.RegexUtilTest.executor": "Run",
+    "JUnit.RegexUtilTest.findMatches_NoMatches.executor": "Run",
+    "JUnit.RegexUtilTest.findMatches_WithEmptyText.executor": "Run",
+    "JUnit.RegexUtilTest.findMatches_WithValidPattern.executor": "Run",
+    "JUnit.RegexUtilTest.isMatch_EmptyInputs.executor": "Run",
+    "JUnit.RegexUtilTest.isMatch_InvalidPattern.executor": "Run",
+    "JUnit.RegexUtilTest.isMatch_NullInputs.executor": "Run",
+    "JUnit.RegexUtilTest.isMatch_ValidPattern.executor": "Run",
+    "JUnit.RegexUtilTest.replaceText_BasicReplacement.executor": "Run",
+    "JUnit.RegexUtilTest.replaceText_NoMatches.executor": "Run",
+    "JUnit.RegexUtilTest.replaceText_WithEmptyReplacement.executor": "Run",
+    "JUnit.TextEntryTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "testing",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/BernardEssilfie/Documents/Projects/TextProcessingFX"
+    "last_opened_file_path": "C:/Users/BernardEssilfie/Documents/Projects/LibraryFX"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.project.scrumtextprocessing.data_management" />
+      <recent name="com.project.scrumtextprocessing.regexUtil" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DataManagerTest">
+    <configuration name="DataManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ScrumTextProcessing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.scrumtextprocessing.data_management.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.scrumtextprocessing.data_management" />
+      <option name="MAIN_CLASS_NAME" value="com.project.scrumtextprocessing.data_management.DataManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegexUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ScrumTextProcessing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.scrumtextprocessing.regexUtil.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.scrumtextprocessing.regexUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.project.scrumtextprocessing.regexUtil.RegexUtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegexUtilTest.isMatch_EmptyInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ScrumTextProcessing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.scrumtextprocessing.regexUtil.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.scrumtextprocessing.regexUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.project.scrumtextprocessing.regexUtil.RegexUtilTest" />
+      <option name="METHOD_NAME" value="isMatch_EmptyInputs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegexUtilTest.isMatch_NullInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ScrumTextProcessing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.scrumtextprocessing.regexUtil.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.scrumtextprocessing.regexUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.project.scrumtextprocessing.regexUtil.RegexUtilTest" />
+      <option name="METHOD_NAME" value="isMatch_NullInputs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TextEntryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ScrumTextProcessing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.scrumtextprocessing.data_management.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.scrumtextprocessing.data_management" />
+      <option name="MAIN_CLASS_NAME" value="com.project.scrumtextprocessing.data_management.TextEntryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DataManagerTest" />
+        <item itemvalue="JUnit.TextEntryTest" />
+        <item itemvalue="JUnit.RegexUtilTest" />
+        <item itemvalue="JUnit.RegexUtilTest.isMatch_EmptyInputs" />
+        <item itemvalue="JUnit.RegexUtilTest.isMatch_NullInputs" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
