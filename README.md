@@ -1,7 +1,7 @@
-# Test Processing Tool Documentation.
+# Text Processing Tool Documentation.
 
 ## Overview
-The Test Processing Tool is a versatile utility designed to simplify text processing using regular expressions (regex).
+The Text Processing Tool is a versatile utility designed to simplify text processing using regular expressions (regex).
 It allows users to:
 - Check if a given text matches a specific regex pattern.
 - Search for specific patterns within a text.
@@ -11,7 +11,7 @@ This tool is highly useful for developers, data analysts, and anyone dealing wit
 
 ## Importance of the project.
 Regular expressions are powerful tools for text processing, but they can be intimidating for beginners and tedious for repetitive tasks.
-The Test Processing Tool addresses these challenges by providing a user-friendly interface for:
+The Text Processing Tool addresses these challenges by providing a user-friendly interface for:
 - Quickly validating regex patterns.
 - Testing text transformations without writing additional code.
 - Learning regex by observing real-time results.
